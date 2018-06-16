@@ -1,0 +1,116 @@
+template.jade
+
+
+block vars
+doctype html
+html
+	head
+		title Authrisation | #{title}
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+	body
+		block body
+----------------------------------------------------------------
+
+index.jade
+
+extends template
+block vars
+	- var title = "Home Page"
+	
+block body
+	h1 Authorisation Application
+	p Welcome to the authorisation page <br> registered users <a href="/login" > login in here </a> <br/> new users <a href="/register"> register </a> here to continue.
+
+----------------------------------------------------------------
+login.jade
+
+extends template
+
+block vars
+	- var title = 'Login'
+
+block body
+	h1 Log Into Your Account
+
+	if error
+		p ERROR: #{error}
+
+	form(method="post")
+   
+		label Email:
+			input(type="email", name="email", required=true)
+		br
+
+		label Password:
+			input(type="password", name="password", required=true)
+		br
+
+		input(type="submit")
+
+
+----------------------------------------------------------------
+logout.jade
+
+extends template
+block vars
+	- var title = "Logout Page"
+block body
+	h1 You are now logged out
+
+
+----------------------------------------------------------------
+profile.jade
+
+extends template
+
+block vars
+	- var title = 'Profile'
+
+block body
+	h1 Profile
+	p.
+		Welcome to your profile! You are now logged in.
+
+	h2 User Information
+//	p First Name:	#{user.firstName}
+//	p Last Name:	#{user.lastName}
+//	p Email:	#{user.email}
+//	p Data:	#{user.data}
+
+
+----------------------------------------------------------------
+register.jade
+
+extends template
+
+block vars
+	- var title = 'Register'
+
+block body
+	h1 Create an Account
+
+	if error
+	p ERROR: #{error}
+
+	form(method="post")
+		label First Name:
+			input(type="text", name="firstName", required=true)
+		br
+
+		label Last Name:
+			input(type="text", name="lastName", required=true)
+		br
+
+		label Email:
+			input(type="email", name="email", required=true)
+		br
+
+		label Password:
+			input(type="password", name="password", required=true)
+		br
+
+		input(type="submit")
+
+
+
+----------------------------------------------------------------
